@@ -54,6 +54,7 @@ local function getArgs(inputs, options, extraArgs, blacklistedFlags, forceReplac
   if #inputs.paths > 0 then
     local paths = utils.splitPaths(inputs.paths)
     for _, path in ipairs(paths) do
+      path = vim.fs.normalize(path)
       table.insert(args, path)
     end
   end
